@@ -7,3 +7,8 @@ from modules.models import Module
 class ModuleViewSet(viewsets.ModelViewSet):
     serializer_class = ModuleSerializer
     queryset = Module.objects.all()
+
+    def perform_create(self, serializer):
+        module = serializer.save()
+        module.owner = self.request.user
+        module.save()
