@@ -1,7 +1,9 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from modules.paginators import MyPagination
 from modules.serializers import ModuleSerializer
 from modules.models import Module
+from users.permissions import IsOwner
 
 
 # Create your views here.
@@ -16,3 +18,10 @@ class ModuleViewSet(viewsets.ModelViewSet):
         module = serializer.save()
         module.owner = self.request.user
         module.save()
+
+    def get_permissions(self):
+        if self.action in ["destroy", "update"]:
+            self.permission_classes = [IsAuthenticated, IsOwner]
+        elif self.action in ["retrieve", "create"]:
+            self.permission_classes = [IsAuthenticated]
+        return super().get_permissions()
