@@ -22,11 +22,17 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("title", models.CharField(max_length=100, verbose_name="Название")),
+                ("title", models.CharField(
+                    max_length=100,
+                    verbose_name="Название"
+                )),
                 (
                     "description",
                     models.CharField(
-                        blank=True, max_length=300, null=True, verbose_name="Описание"
+                        blank=True,
+                        max_length=300,
+                        null=True,
+                        verbose_name="Описание"
                     ),
                 ),
             ],

@@ -13,7 +13,9 @@ class ModuleTestCase(APITestCase):
         self.user.set_password("59hl71ee")
         self.client.force_authenticate(user=self.user)
         self.module = Module.objects.create(
-            title="Module 1. Introduction", description="Введение", owner=self.user
+            title="Module 1. Introduction",
+            description="Введение",
+            owner=self.user
         )
 
     def test_module_create(self):
