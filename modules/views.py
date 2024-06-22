@@ -1,14 +1,16 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+
+from modules.models import Module
 from modules.paginators import MyPagination
 from modules.serializers import ModuleSerializer
-from modules.models import Module
 from users.permissions import IsOwner
 
 
 # Create your views here.
 class ModuleViewSet(viewsets.ModelViewSet):
     """Educational module viewset controller"""
+
     serializer_class = ModuleSerializer
     queryset = Module.objects.all()
     pagination_class = MyPagination
