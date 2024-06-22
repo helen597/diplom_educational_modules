@@ -22,7 +22,7 @@ class ModuleViewSet(viewsets.ModelViewSet):
         module.save()
 
     def get_permissions(self):
-        if self.action in ["destroy", "update"]:
+        if self.action in ["destroy", "update", "partial_update"]:
             self.permission_classes = [IsAuthenticated, IsOwner]
         elif self.action in ["retrieve", "create"]:
             self.permission_classes = [IsAuthenticated]
