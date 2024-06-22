@@ -5,7 +5,7 @@ from modules.views import ModuleViewSet
 
 app_name = ModulesConfig.name
 router = DefaultRouter()
-router.register(r'modules', ModuleViewSet, basename='modules')
+router.register(r'module', ModuleViewSet, basename='module')
 
 urlpatterns = [
 
