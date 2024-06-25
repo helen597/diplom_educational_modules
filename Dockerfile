@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-WORKDIR /habits
+WORKDIR /modules
 
 COPY ./requirements.txt .
 
